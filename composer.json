@@ -11,6 +11,11 @@
   "require": {
     "yalesov/cron-expr-parser": "2.*"
   },
+  "autoload": {
+    "psr-0": {
+      "Azurre\\Component\\Cron": "src/"
+    }
+  },
   "license": "ISC",
   "homepage": "https://github.com/Azurre/Scheduler",
   "support": {
