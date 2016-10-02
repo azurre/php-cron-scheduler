@@ -9,7 +9,6 @@
     }
   ],
   "require": {
-    "php": ">=5.3.3",
     "yalesov/cron-expr-parser": "2.*"
   },
   "license": "ISC",
