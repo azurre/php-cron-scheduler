@@ -1,0 +1,5 @@
+{
+  "require": {
+    "yalesov/cron-expr-parser": "2.*"
+  }
+}
