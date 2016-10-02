@@ -1,9 +1,7 @@
 {
   "name": "azurre/php-scheduler",
   "description": "Cron jobs manager",
-  "keywords": [
-    "cron"
-  ],
+  "keywords": ["cron"],
   "authors": [
     {
       "name": "Aleksandr Milenin",
@@ -18,8 +16,8 @@
   "homepage": "https://github.com/Azurre/Scheduler",
   "repositories": [
     {
-      "type": "git",
-      "url": "https://github.com/Azurre/Scheduler.git"
+      "type": "vcs",
+      "url": "https://github.com/yalesov/php-cron-expr-parser"
     }
   ],
   "support": {
