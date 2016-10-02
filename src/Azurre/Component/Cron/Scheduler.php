@@ -12,25 +12,39 @@ use Yalesov\CronExprParser\Parser;
 class Scheduler {
 
     protected
-        $time,
-        $pathToJobs = '',
+        $startTime,
+        $logsPath = './',
+        $jobsPath = './jobs/',
         $jobs = [];
 
     /**
-     * @param mixed $time
+     * @param int $startTime
      */
-    public function __construct($time = null)
+    public function __construct($startTime = null)
     {
-        $this->time = $time ? $time : time();
+        $this->startTime = $startTime ? $startTime : time();
     }
 
     /**
      * @param string $path
+     *
      * @return $this
      */
     public function setJobPath($path)
     {
-        $this->pathToJobs = $path;
+        $this->jobsPath = $path;
+
+        return $this;
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return $this
+     */
+    public function setLogsPath($path)
+    {
+        $this->logsPath = $path;
 
         return $this;
     }
@@ -48,6 +62,9 @@ class Scheduler {
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function clearJobs()
     {
         $this->jobs[] = [];
@@ -66,8 +83,8 @@ class Scheduler {
     public function run()
     {
         foreach ($this->jobs as $job) {
-            if (Parser::matchTime($this->time, $job['expr'])) {
-                call_user_func_array($job['callback'], [$this->pathToJobs]);
+            if (Parser::matchTime($this->startTime, $job['expr'])) {
+                call_user_func_array($job['callback'], [$this->logsPath, $this->jobsPath]);
             }
         }
 
