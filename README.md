@@ -14,7 +14,7 @@ Keep your project cron jobs in your project
     }
   ],
   "require": {
-    "azurre/php-scheduler": "master"
+    "azurre/php-scheduler": "dev-master"
   }
 }
 ```
