@@ -23,7 +23,7 @@ Keep your project cron jobs in your project
 
 Add scheduler starter to cron:
 ```bash
-crontab -e
+$ crontab -e
 ```
 
 ```
