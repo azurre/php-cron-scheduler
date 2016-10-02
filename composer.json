@@ -9,17 +9,10 @@
     }
   ],
   "require": {
-    "php": ">=5.3.3",
     "yalesov/cron-expr-parser": "2.*"
   },
   "license": "ISC",
   "homepage": "https://github.com/Azurre/Scheduler",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/yalesov/php-cron-expr-parser"
-    }
-  ],
   "support": {
     "issues": "https://github.com/Azurre/Scheduler/issues"
   }
