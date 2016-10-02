@@ -9,7 +9,7 @@ namespace Azurre\Component\Cron;
 
 use Yalesov\CronExprParser\Parser;
 
-class Cron {
+class Scheduler {
 
     protected
         $time,
