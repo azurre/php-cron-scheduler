@@ -1,22 +1,16 @@
-# azurre/scheduler
-Keep your project cron jobs in your project
+# azurre/scheduler [![Latest Version](https://img.shields.io/github/release/azurre/scheduler.svg?style=flat-square)](https://github.com/azurre/scheduler/releases)
+Simple cron jobs manager. Keep your project cron jobs in your project!
 
 # Installation
 
-[Composer](http://getcomposer.org/):
+Install composer in your project:
+```
+curl -s https://getcomposer.org/installer | php
+```
 
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/azurre/scheduler"
-    }
-  ],
-  "require": {
-    "azurre/php-scheduler": "master"
-  }
-}
+Require the package with composer:
+```
+composer require azurre/scheduler
 ```
 
 # Usage
