@@ -16,7 +16,7 @@
       "Azurre\\Component\\Cron": "src/"
     }
   },
-  "license": "ISC",
+  "license": "GPL-3.0",
   "homepage": "https://github.com/azurre/scheduler",
   "support": {
     "issues": "https://github.com/azurre/scheduler/issues"
