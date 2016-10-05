@@ -1,7 +1,7 @@
 <?php
 /**
  * @date    23.07.2015
- * @version 0.1
+ * @version 1.1
  * @author  Aleksandr Milenin admin@azrr.info
  */
 
