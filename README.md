@@ -1,4 +1,4 @@
-# azurre/scheduler [![Latest Version](https://img.shields.io/github/release/azurre/scheduler.svg?style=flat-square)](https://github.com/azurre/scheduler/releases)
+# Scheduler [![Latest Version](https://img.shields.io/github/release/azurre/scheduler.svg?style=flat-square)](https://github.com/azurre/scheduler/releases)
 Simple cron jobs manager. Keep your project cron jobs in your project!
 
 # Installation
