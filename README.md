@@ -10,7 +10,7 @@ curl -s https://getcomposer.org/installer | php
 
 Require the package with composer:
 ```
-composer require azurre/scheduler
+composer require azurre/php-scheduler
 ```
 
 # Usage
