@@ -1,21 +1,19 @@
-# Scheduler [![Latest Version](https://img.shields.io/github/release/azurre/scheduler.svg?style=flat-square)](https://github.com/azurre/scheduler/releases)
+# PHP Cron Scheduler [![Latest Version](https://img.shields.io/github/release/azurre/php-cron-scheduler.svg?style=flat-square)](https://github.com/azurre/php-cron-scheduler/releases)
+
 Simple cron jobs manager. Keep your project cron jobs in your project!
 
 # Installation
 
-Install composer in your project:
-```
-curl -s https://getcomposer.org/installer | php
-```
-
 Require the package with composer:
+
 ```
-composer require azurre/php-scheduler
+composer require azurre/php-cron-scheduler
 ```
 
 # Usage
 
 Add scheduler starter to cron:
+
 ```bash
 $ crontab -e
 ```
@@ -25,32 +23,46 @@ $ crontab -e
 ```
 
 Sample of scheduler.php
+
 ```php
 $loader = require_once __DIR__ . '/vendor/autoload.php';
 
 use Azurre\Component\Cron\Scheduler;
+use Azurre\Component\Cron\Expression;
 
-$php  = '/usr/bin/php';
-$path = dirname(__FILE__) . '/';
+$e = new Expression();
 
-$Scheduler = new Scheduler();
-$Scheduler
-    ->setJobPath($path)
-    ->setLogsPath($path);
+echo $e->monthly(28); // 0 0 28 * *
+echo $e->weekly($e::FRIDAY)->at('05:30'); // 30 5 * * 5
+echo $e->daily('06:10'); // 10 6 * * *
 
-$Scheduler->addJob('* * * * *', function($logsPath){
-    // just do something
-    file_put_contents($logsPath . 'log.log', 'OK', FILE_APPEND);
-});
+echo Expression::create()  // */5 0 16 1 5
+    ->setMinute('*/5')
+    ->setHour('*')
+    ->setDayOfMonth(16)
+    ->setDayOfWeek('fri')
+    ->setMonth('Jan');
 
-$Scheduler->addJob('*/2 * * * *', function ($logsPath, $jobPath) use ($php) {
+// ------------
+
+$testFunc = function () {
+    echo 'TEST OK';
+};
+$scheduler = new Scheduler();
+$scheduler
+    ->addJob('* * * * *', function() {
+        // just do something
+    })->addJob('0 0 * * * *', $testFunc);
+$scheduler->run();
+
+// -----------
+
+$logPath = '/path/to/log.log';
+$scheduler = new Scheduler('2021-07-05 06:10:00');
+$scheduler->addJob($e, function () use($logPath) {
     // run standalone php script
-    $cmd = "{$php} {$jobPath}calculate.php >> {$logsPath}calculate.log 2>&1";
-    $result = `$cmd`;
+    $cmd = "/usr/bin/php /path/to/script.php >> {$logPath} 2>&1";
+    system($cmd);
 });
-
-// Do something ...
-
-echo date('d-m-Y H:i:s') . ' Run scheduler...' . PHP_EOL;
-$Scheduler->run();
+$scheduler->run();
 ```

@@ -1,22 +1,20 @@
 {
-  "name": "azurre/php-scheduler",
+  "version": "1.2",
+  "name": "azurre/php-cron-scheduler",
   "description": "Cron jobs manager",
-  "keywords": ["cron"],
+  "keywords": ["cron","scheduler"],
   "authors": [
     {
       "name": "Aleksandr Milenin",
       "email": "admin@azrr.info"
     }
   ],
-  "require": {
-    "yalesov/cron-expr-parser": "2.*"
-  },
   "autoload": {
-    "psr-0": {
-      "Azurre\\Component\\Cron": "src/"
+    "psr-4": {
+      "Azurre\\Component\\Cron\\": "src/"
     }
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "homepage": "https://github.com/azurre/scheduler",
   "support": {
     "issues": "https://github.com/azurre/scheduler/issues"
