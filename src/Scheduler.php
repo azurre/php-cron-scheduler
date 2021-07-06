@@ -13,7 +13,7 @@ class Scheduler {
     protected $jobs = [];
 
     /**
-     * @param string|numeric $startTime
+     * @param string|numeric|null $startTime
      */
     public function __construct($startTime = null)
     {
