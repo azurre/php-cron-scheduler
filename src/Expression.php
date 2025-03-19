@@ -205,7 +205,7 @@ class Expression
      */
     public static function matchTime($time, $expr)
     {
-        $cronExpr = preg_split('/\s+/', $expr, null, PREG_SPLIT_NO_EMPTY);
+        $cronExpr = preg_split('/\s+/', $expr, -1, PREG_SPLIT_NO_EMPTY);
         if (count($cronExpr) !== 5) {
             throw new \InvalidArgumentException(
                 sprintf(
@@ -366,6 +366,6 @@ class Expression
 
     public function __toString()
     {
-        return implode($this->expression, ' ');
+        return implode(' ', $this->expression);
     }
 }
